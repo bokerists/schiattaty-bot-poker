@@ -75,10 +75,26 @@ exports = module.exports = {
     */
 
     var player = gamestate.players[gamestate.me],
-        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+        getCardValue = function  (card){
+          return ranks.indexOf(card.rank)
+        },
+        getCouple = function(){
+          var currentCard = player.cards[0].rank;
 
+          for (var i = 1; i < player.cards.length; i++) {
+            if (player.cards[i].rank == currentCard) {
+              return true;
+            }
+          }
+        };
 
-    return 20;
+        if (getCouple()) {
+          return 20;
+        }else{
+          return 0;
+        }
+
 
   }
 
