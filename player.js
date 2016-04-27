@@ -21,7 +21,7 @@ exports = module.exports = {
 
     'use strict';
 
-    console.log(`Currently playing tournament ${gamestate.tournamentId}`);
+
 
 /*
     {
@@ -76,6 +76,7 @@ exports = module.exports = {
 
     var player = gamestate.players[gamestate.me],
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+        couple = null,
         getCardValue = function  (card){
           return ranks.indexOf(card.rank)
         },
@@ -84,19 +85,18 @@ exports = module.exports = {
 
           for (var i = 1; i < player.cards.length; i++) {
             if (player.cards[i].rank == currentCard) {
+              couple = player.cards[i].rank;
               return true;
             }
           }
         };
 
-        if (getCouple()) {
+
+      if (getCouple() && getCardValue(couple) > 7) {
           return 20;
-        }else{
-          return 0;
-        }
+      } else {
+        return 0;
+      }
 
-
-  }
-
-
+    }
 };
