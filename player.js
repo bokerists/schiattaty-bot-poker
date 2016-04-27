@@ -23,7 +23,58 @@ exports = module.exports = {
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
-    return 10;
+/*
+    {
+      // Unique id of the tournament that is being played.
+      // ObjectId is a mongodb type.
+      // A tournament is made by one or more Games.
+      "tournamentId": ObjectId,
+
+      // Id of the current Game.
+      // A new game starts automatically when all the players (but one) get eliminated.
+      // A Game is made by one or more Rounds.
+        "game": Number,
+
+      // Id of the current Round.
+      // If there is more than one active player, a new round starts automatically
+      // after the end of another round.
+      // A round ends when the pot is assigned to one or more players.
+        "round": Number,
+
+      // Count the number of time
+      // that players had already have the possibility to bet in the current session.
+      // It starts from zero.
+        "spinCount": Number,
+
+      // Value of the small blind.
+      // Big blind is always twice.
+        "sb": Number,
+
+      // Amount of chips currently on the table.
+        "pot": Number,
+
+      // List of the community cards,
+      // with which players can form their best combination.
+        "commonCards": [CARD],
+
+      // List of the players;
+      // It always contains all the players.
+        "players": [PLAYER],
+
+      // Index of the player who has the Dealer Button.
+        "db": Number,
+
+      // Index of the current player.
+        "me": Number,
+
+      // Amount of chips the current player must bet in order to remain in the game.
+      // It depends by how much he bet previously; so it can change for each player.
+        "callAmount": Number
+
+    }
+    */
+
+    return 0;
 
   }
 
