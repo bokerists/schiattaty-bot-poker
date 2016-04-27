@@ -23,7 +23,7 @@ exports = module.exports = {
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
-    return 0;
+    return 10;
 
   }
 
