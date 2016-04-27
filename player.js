@@ -76,9 +76,10 @@ exports = module.exports = {
 
     var player = gamestate.players[gamestate.me],
         ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
+        totalCards = player.cards.concat(gamestate.commonCards),
         couple = 0,
         getCardValue = function  (card){
-          return ranks.indexOf(card.rank)
+          return ranks.indexOf(card.rank);
         },
         getCouple = function(){
           var currentCard = player.cards[0].rank;
@@ -89,13 +90,15 @@ exports = module.exports = {
               return true;
             }
           }
-        };
+        },
+        getState = function(){};
 
 
-      if (getCouple() && getCardValue(couple) > 7) {
+      if (getCouple()) {
           return 20;
       } else {
         return 0;
       }
+
     }
 };
